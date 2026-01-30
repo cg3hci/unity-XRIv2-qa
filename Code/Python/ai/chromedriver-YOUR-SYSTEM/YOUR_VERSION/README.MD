@@ -1,0 +1,1 @@
+﻿This is a folder example. You have to download your chromedriver.exe and place it in this folder.

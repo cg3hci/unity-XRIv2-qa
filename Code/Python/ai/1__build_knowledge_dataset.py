@@ -10,20 +10,12 @@ from src.loaders.supergeneric_loader import SuperGenericLoader
 from src.loaders.public_source_loaders.generic_public_loader import GenericScrapperLoader
 from src.loaders.private_source_loaders.generic_private_loader import GenericInjectPrivateQALoader
 
-from src.loaders.public_source_loaders.stackoverflow_loader import StackOverflowLoader
-from src.loaders.public_source_loaders.stackexchange_loader import StackExchangeLoader
-from src.loaders.public_source_loaders.unity_doc_loader import UnityLoader
-from src.loaders.public_source_loaders.fmod_loader import FmodLoader
-from src.loaders.public_source_loaders.discussions_unity_loader import DiscussionsUnityLoader
-from src.loaders.public_source_loaders.reddit_loader import RedditLoader
-from src.loaders.public_source_loaders.github_issue_loader import GithubIssueLoader
-from src.loaders.public_source_loaders.github_discussions_loader import GithubDiscussionsLoader
-from src.loaders.public_source_loaders.blogs_medium_loader import MediumLoader
-from src.loaders.public_source_loaders.blogs_unity import LearnXRBlogLoader
-from src.loaders.public_source_loaders.xri_doc_loader import XRILoader
+from src.loaders.public_source_loaders.EXAMPLE_LOADER_TYPE1_ARTICLE import documentExampleLoader
+from src.loaders.public_source_loaders.EXAMPLE_LOADER_TYPE2_SUPERVISED_FORUMS import supervisedForumExampleLoader
+from src.loaders.public_source_loaders.EXAMPLE_LOADER_TYPE3_UNSUPERVISED_FORUMS import UNsupervisedForumExampleLoader
 
 # Specific private inject loaders
-from src.loaders.private_source_loaders.mrtk3_custom_students_curiosity_loader import MRTK3_ExampleCustomQAs 
+from src.loaders.private_source_loaders.EXAMPLE_LOADER_CUSTOM_QAs import PRIVATE_QA_JSON_Loader as Private_QA_JSON_Loader
 
 # Loader Joiner
 from src.loaders.dataset_loader_joiner import LoaderJoinerDataset
@@ -39,25 +31,18 @@ if __name__ == '__main__':
     list_of_scrapper_loaders : list[GenericScrapperLoader] = [
         # MRTK3Loader(CHOSEN_MODEL), # This is for MRTK3, not for XRI
         ### Type 1 -> Web Articles ###
-        UnityLoader(CHOSEN_MODEL),
-        MediumLoader(CHOSEN_MODEL),
-        XRILoader(CHOSEN_MODEL),
-        LearnXRBlogLoader(CHOSEN_MODEL),
+        documentExampleLoader(CHOSEN_MODEL),
+
         ### Type 2 -> Supervised Forums ###
-        StackOverflowLoader(CHOSEN_MODEL),
-        StackExchangeLoader(CHOSEN_MODEL), 
-        FmodLoader(CHOSEN_MODEL),
-        DiscussionsUnityLoader(CHOSEN_MODEL),
-        GithubDiscussionsLoader(CHOSEN_MODEL),
+        supervisedForumExampleLoader(CHOSEN_MODEL),
         ### Type 3 -> Unsupervised Forums ###
-        RedditLoader(CHOSEN_MODEL),
-        GithubIssueLoader(CHOSEN_MODEL)
+        UNsupervisedForumExampleLoader(CHOSEN_MODEL),
     ]
 
     # Initialize the specific private loaders.
     # Again, creating the instance does nothing by itself, but it allows you to call the build_docs() methods.
     list_of_custom_inject_loaders : list[GenericInjectPrivateQALoader] = [
-        # MRTK3_ExampleCustomQAs()
+        Private_QA_JSON_Loader()
     ]
 
     if DO_CREATE_ORIG_and_QnA := False:
@@ -72,7 +57,7 @@ if __name__ == '__main__':
             pub_loader.build_docs(opt)
 
         for priv_loader in list_of_custom_inject_loaders:
-            priv_loader.build_docs(opt)
+            priv_loader.build_docs(opt["override_qa_doc_if_exist"])
 
     if DO_JOIN := True:
         # Join the knowledge documents. i.e. merge the .JSON files into a single .JSONL (json line) file.
