@@ -1,10 +1,11 @@
 # Specializing LLMs to Low-Documented Domains with RAG
 This repo shares:
-- the prompts used that implement the RAG pipeline
+- the code behind the project __(Coming Soon)__
+- a simplified versione of the prompts used that implement the RAG pipeline
 - the benchmark used to evaluate the pipeline
 
 ## 📂 Repository Contents
-
+- `Code/` – The main code __(Coming Soon)__
 - `benchmark.json` – The benchmark dataset in JSON format.
 - `benchmark_reader.py` – Python code for reading and validating the benchmark.
  used in the study.
