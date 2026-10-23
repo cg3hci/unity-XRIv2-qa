@@ -1,0 +1,47 @@
+cff-version: 1.2.0
+message: Please cite the following works when using this software.
+preferred-citation:
+  abstract: |-
+    <jats:title>Abstract</jats:title>
+                      <jats:p>Large Language Models (LLMs) are increasingly used to support technical tasks such as software development. However, they often struggle in low-documented or fast-evolving domains, where missing training data leads to inaccurate or incomplete responses. This paper presents a reproducible pipeline based on Retrieval-Augmented Generation to specialize LLMs for such domains by integrating curated external knowledge. We detail a systematic process to build a high-quality Q&amp;A dataset from public instructional sources and developer forums and apply it to the Unity XR Interaction Toolkit (XRIv2) as a case study. We construct a domain-specific benchmark of 101 question-answer pairs based on real learning resources and evaluate five open and proprietary LLMs (GPT-3.5-Turbo, GPT-4o Mini, LLaMA2, LLaMA3, and Mistral) under varying retrieval settings. Results show that standard automatic metrics (e.g., METEOR) struggle to detect quality differences, while LLM-as-a-Judge evaluations reveal significant model-specific improvements as more documents are retrieved. Our findings offer practical guidance for tuning retrieval strategies and highlight the potential for generalizing this approach to other technical domains requiring targeted LLM specialization.</jats:p>
+  authors:
+    - family-names: Mereu
+      given-names: Jacopo
+      orcid: https://orcid.org/0009-0008-7521-7876
+    - family-names: Carcangiu
+      given-names: Alessandro
+      orcid: https://orcid.org/0009-0007-8989-3384
+    - family-names: Artizzu
+      given-names: Valentino
+      orcid: https://orcid.org/0000-0003-0263-2434
+    - family-names: Cau
+      given-names: Federico Maria
+      orcid: https://orcid.org/0000-0002-8261-3200
+    - family-names: Spano
+      given-names: Lucio Davide
+      orcid: https://orcid.org/0000-0001-7106-0463
+  doi: 10.1007/s42979-026-04844-6
+  identifiers:
+    - type: doi
+      value: 10.1007/s42979-026-04844-6
+    - type: url
+      value: http://dx.doi.org/10.1007/s42979-026-04844-6
+    - type: other
+      value: urn:issn:2661-8907
+  title: >-
+    Specializing LLMs to Low-Documented Domains with RAG: An Analysis Across
+    Models and Retrieval Depths
+  url: http://dx.doi.org/10.1007/s42979-026-04844-6
+  database: Crossref
+  date-published: 2026-03-28
+  year: 2026
+  month: 3
+  issn: 2661-8907
+  issue: '4'
+  journal: SN Computer Science
+  languages:
+    - en
+  publisher:
+    name: Springer Science and Business Media LLC
+  type: article
+  volume: '7'
